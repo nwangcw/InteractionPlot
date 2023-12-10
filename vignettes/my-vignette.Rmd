@@ -1,0 +1,45 @@
+---
+title: "InteractionPlot"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{InteractionPlot}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(InteractionPlot)
+```
+
+# InteractionPlot
+
+Nicole Wang
+
+In recent years, various plotting packages have become well-known in R for data visualization, with tools like ggplot2 commonly used for descriptive analysis. While many of these tools handle tasks like displaying frequency plots or density charts, meeting most users' needs, there's a noticeable gap when it comes to visualizing data containing interaction effects. These interaction effects graphics are crucial, especially in fields like social science and public health. Many social science researchers opt for binary variables because they're straightforward to interpret. The challenge arises when they need to explore all potential interaction terms across hundreds of variables. Our goal is to address two main issues: identifying significant interaction effects between binary variables in logistics regression and creating automatic visualizations of the findings.
+
+Interaction effects stand apart from other variables that you can measure directly. They need to be inferred indirectly through an interaction term in statistics model. Our package plans to streamline this process. We start by having the model $Y_{i,j}=X_1...+X_n+X_i*X_j$, for i,j=1..n. We'll need users to specify the response variable first. Based on this, we'll filter out all non-binary variables and create a matrix to hold all combinations of interaction variables, helping to cut down on computing costs. We'll then apply linear regression analysis to the data and highlight the significant interaction terms. Lastly, we'll take these insights and generate visualizations automatically with description of i number in main label, making it easier for users to understand the interaction effects in their data.
+
+## Installation
+
+To install InteractionPlot package, copy and paste the following code into your console:
+
+```{r}
+library(devtools)
+devtools::install_github("nwangcw/test", build_vignettes = TRUE, build_opts = c("--no-resave-data", "--no-manual"))
+```
+
+## Usage
+
+To install InteractionPlot package, copy and paste the following code into your console:
+
+```{r}
+library(InteractionPlot)
+```
+
