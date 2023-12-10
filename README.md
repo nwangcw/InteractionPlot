@@ -172,10 +172,10 @@ plots
 ```
 ##### 2 plots of interaction somke * ht (each variable has opportunity to be putted on the  x-axis)
 
-![ ](img/mass_smoke_ht.png)
+![ ](img/mass_somke_ht.png)
 ![ ](img/mass_ht_smoke.png)
 
 ##### 2 plots of interaction somke * ui (each variable has opportunity to be putted on the  x-axis)
-![ ](img/mass_smoke_ui.png)
-![ ](img/mass_ui_ht.png)
+![ ](img/mass_somke_ui.png)
+![ ](img/mass_ui_smoke.png)
 
