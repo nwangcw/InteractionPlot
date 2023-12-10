@@ -10,9 +10,14 @@ Description: Our goal is to address two main issues:
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
+VignetteBuilder: knitr
 RoxygenNote: 7.2.1
 Imports: 
     dplyr,
     ggplot2,
     glmnet,
     stats
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
