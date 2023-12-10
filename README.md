@@ -32,7 +32,8 @@ library(InteractionPlot)
 
 ```{r}
 set.seed(1234)
-
+library(ggplot2)
+library(dbplr)
 n <- 100 
 v1 = rbinom(n, 1, 0.4)
 v2 <- rbinom(n, 1, 0.5)  
@@ -128,6 +129,8 @@ plots
 
 library(InteractionPlot)
 library(MASS)
+library(ggplot2)
+library(dbplr)
 
 data<- as.data.frame(birthwt)
 response_variable <-"lwt"
