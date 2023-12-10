@@ -9,7 +9,7 @@ extract_significant(full_results, significance_level = 0.05)
 \arguments{
 \item{full_results}{- gererated by analyze_interactions. A list where each element is a regression coefficient summary for each interaction term in the interaction matrix.}
 
-\item{significance_level}{- significant level (default as 0.05)}
+\item{significance_level}{- significant level, default as 0.05}
 }
 \value{
 - significant interaction terms' p-values and their names
