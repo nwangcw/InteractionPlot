@@ -76,7 +76,7 @@ print(head(interaction_matrix))
 ##### We may see some terms are missing in full_results because of their p-value is NA 
 
 ```{r}
-full_results <- analyze_interactions(data, interaction_matrix, "y")
+full_results <- analyze_interactions(prepared_data, interaction_matrix, "y")
 print(full_results)
 significant_interactions <- extract_significant(full_results)
 print(significant_interactions)
