@@ -24,7 +24,7 @@
 #' full_results <- analyze_interactions(prepared_data, interaction_matrix, "y")
 #'
 #'
-#' significant_interactions <- extract_significant_p_values(full_results)
+#' significant_interactions <- extract_significant(full_results)
 #' print(significant_interactions)
 
 
