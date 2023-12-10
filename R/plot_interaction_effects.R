@@ -35,7 +35,7 @@ plot_interaction_effects <- function(data, response_var, significant_interaction
     variables <- strsplit(term, " \\* ")[[1]]
     grouped_data <- data %>%
       group_by(across(all_of(variables))) %>%
-      summarise(y_groups = mean(response_var, na.rm = TRUE), .groups = 'drop')
+      summarise(y_groups = mean(.data[[response_var]], na.rm = TRUE), .groups = 'drop')
 
     # Plot 1: First variable on x-axis
     plot1 <- ggplot(grouped_data, aes(x = .data[[variables[1]]], y = y_groups, color = as.factor(.data[[variables[2]]]))) +

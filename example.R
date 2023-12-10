@@ -31,7 +31,7 @@ print(significant_interactions)
 
 fit_final_regression <- final_regression(prepared_data, "y")
 fit_final_regression
-
+library(ggplot2)
 plots <- plot_interaction_effects(prepared_data,"y", significant_interactions)
 plots
 
