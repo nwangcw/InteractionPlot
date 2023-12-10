@@ -25,6 +25,10 @@ library(InteractionPlot)
 
 ### Example 1 -- Simulation example
 
+##### set v1, v2, v3, v5 as binary, v4 and y as continous.
+
+##### set 2 interaction effect, v2 * v3 and v1 * v3.
+
 ```{r}
 set.seed(1234)
 
@@ -39,27 +43,81 @@ interaction_effect2 <- v1 * v3
 
 y <- 2 * v1 + 2 * v2 + 2 * v3 + 200 * interaction_effect1 + 200 * interaction_effect2 + rnorm(n,mean=0,sd=1)  
 
-
 data <- data.frame(y = y, v1 = v1, v2 = v2, v3 = v3, v4 = v4, v5 = v5)
 
+```
 
+#### Step 1 : Data Cleaning and Preparation
+
+##### keep y, and filter out continous variables (v4 in this case) 
+
+##### construct a matrix for names of interaction item for reducing computing works
+
+```{r}
 prepared_data <- prepare_data(data, "y")
 print(head(prepared_data))
 
 interaction_matrix <- create_interaction_matrix(prepared_data, "y")
 print(head(interaction_matrix))
+```
 
+#### Step 2 : Fit Regression Model and Extract Significant Interactions
+
+##### The model will fit for each interaction term, for example:(in this case v4 was removed because it's continuous)
+
+##### y = v1 + v2 + v3 + v5 + v1 * v2
+
+##### y = v1 + v2 + v3 + v5 + v1 * v3
+
+##### y = v1 + v2 + v3 + v5 + v2 * v3,....etc
+
+##### We may see some terms are missing in full_results because of their p-value is NA 
+
+```{r}
 full_results <- analyze_interactions(data, interaction_matrix, "y")
 print(full_results)
 significant_interactions <- extract_significant_p_values(full_results)
 print(significant_interactions)
+```
 
+![ ](img/sim_extract.png)
+
+##### we can see v1 * v3 and v2 * v3 are significant (p < 0.05), just as what we are setting in simulation.
+
+#### Step 3 : Generate Final Regression
+
+##### final model: y = v1 + v2 + v3 + v1 * v3 + v2 * v3
+
+```{r}
 fit_final_regression <- final_regression(prepared_data, "y")
 fit_final_regression
+```
+![ ](img/sim_coeff.png)
 
+#### Step 4 : Plot Interaction Effects
+
+```{r}
 plots <- plot_interaction_effects(prepared_data, significant_interactions)
 plots
 ```
+##### 2 plots of interaction v1*v3 (each variable has opportunity to be putted on the  x-axis)
+
+![ ](img/v1_v3.png)
+![ ](img/v3_v1.png)
+
+##### 2 plots of interaction v2*v3 (each variable has opportunity to be putted on the  x-axis)
+![ ](img/v2_v3.png)
+![ ](img/v3_v2.png)
+
+
+
+
+
+
+
+
+
+
 
 ### Example 2 -- Real world data
 
@@ -81,13 +139,7 @@ print(head(interaction_matrix))
 ```
 #### Step 2 : Fit Regression Model and Extract Significant Interactions
 
-##### The model will fit for each interaction term, for example:(in this case v4 was removed because it's continuous)
-
-##### y = v1 + v2 + v3 + v5 + v1 * v2
-
-##### y = v1 + v2 + v3 + v5 + v1 * v3
-
-##### y = v1 + v2 + v3 + v5 + v2 * v3,....etc
+##### The model will fit for each interaction term
 
 ##### We may see some terms are missing in full_results because of their p-value is NA 
 
@@ -98,19 +150,19 @@ significant_interactions <- extract_significant(full_results)
 print(significant_interactions)
 ```
 
-![ ](img/sim_extract.png)
+![ ](img/mass_extract.png)
 
-##### we can see v1 * v3 and v2 * v3 are significant (p < 0.05), just as what we are setting in simulation.
+##### we can see somke * ht and somke * ui are significant (p < 0.05), just as what we are setting in simulation.
 
 #### Step 3 : Generate Final Regression
 
-##### final model: y = v1 + v2 + v3 + v1 * v3 + v2 * v3
+##### final model: y = smoke + ui + ht + somke * ht + somke * ui
 
 ```{r}
 fit_final_regression <- final_regression(prepared_data, response_variable)
 fit_final_regression
 ```
-![ ](img/sim_coeff.png)
+![ ](img/mass_coeff.png)
 
 #### Step 4 : Plot Interaction Effects
 
@@ -118,12 +170,12 @@ fit_final_regression
 plots <- plot_interaction_effects(prepared_data, response_variable, significant_interactions)
 plots
 ```
-##### 2 plots of interaction v1*v3 (each variable has opportunity to be putted on the  x-axis)
+##### 2 plots of interaction somke * ht (each variable has opportunity to be putted on the  x-axis)
 
-![ ](img/v1_v3.png)
-![ ](img/v3_v1.png)
+![ ](img/mass_smoke_ht.png)
+![ ](img/mass_ht_smoke.png)
 
-##### 2 plots of interaction v2*v3 (each variable has opportunity to be putted on the  x-axis)
-![ ](img/v2_v3.png)
-![ ](img/v3_v2.png)
+##### 2 plots of interaction somke * ui (each variable has opportunity to be putted on the  x-axis)
+![ ](img/mass_smoke_ui.png)
+![ ](img/mass_ui_ht.png)
 
