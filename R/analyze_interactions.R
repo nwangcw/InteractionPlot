@@ -38,7 +38,7 @@ analyze_interactions <- function(data, interaction_matrix, response_var) {
     model_data <- cbind(data, interaction_matrix)
 
     # fit linear regression for each interaction term
-    model <- lm(formula, data = model_data, na.action = NULL)
+    model <- lm(formula, data = model_data)
     coefficients_summary <- summary(model)$coefficients
 
     full_results[[interaction_term]] <- coefficients_summary
