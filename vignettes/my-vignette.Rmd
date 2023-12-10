@@ -98,7 +98,7 @@ print(head(interaction_matrix))
 ```{r}
 full_results <- analyze_interactions(data, interaction_matrix, "y")
 print(full_results)
-significant_interactions <- extract_significant_p_values(full_results)
+significant_interactions <- extract_significant(full_results)
 print(significant_interactions)
 ```
 
