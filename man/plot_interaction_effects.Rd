@@ -32,7 +32,7 @@ data <- data.frame(y = y1, v1 = v1, v2 = v2, v3 = v3, v4 = v4, v5 = v5)
 prepared_data <- prepare_data(data, "y")
 interaction_matrix <- create_interaction_matrix(prepared_data, "y")
 full_results <- analyze_interactions(prepared_data, interaction_matrix, "y")
-significant_interactions <- extract_significant_p_values(full_results)
+significant_interactions <- extract_significant(full_results)
 fit_final_regression <- final_regression(prepared_data, "y")
 plots <- plot_interaction_effects(prepared_data, significant_interactions)
 #do plots in R-markdown if you want to see all plots in 1 times.
