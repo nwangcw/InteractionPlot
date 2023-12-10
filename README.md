@@ -90,6 +90,7 @@ plots <- plot_interaction_effects(prepared_data, response_variable, significant_
 plots
 
 ```
+### plots
 
-
+![ ](img/v1_v3.png)
 
