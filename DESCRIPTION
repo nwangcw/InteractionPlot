@@ -15,7 +15,8 @@ Imports:
     dplyr,
     ggplot2,
     glmnet,
-    stats
+    stats,
+    MASS
 Suggests: 
     knitr,
     rmarkdown
