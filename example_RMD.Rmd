@@ -42,3 +42,37 @@ plots <- plot_interaction_effects(prepared_data, significant_interactions)
 plots
 ```
 
+
+```{r}
+# real data
+
+library(devtools)
+devtools::install_github("nwangcw/test", build = TRUE, build_opts = c("--no-resave-data", "--no-manual"),force = TRUE)
+
+
+library(InteractionPlot)
+library(MASS)
+
+data<- as.data.frame(birthwt)
+response_variable <-"lwt"
+
+prepared_data <- prepare_data(data, response_variable)
+print(head(prepared_data))
+
+interaction_matrix <- create_interaction_matrix(prepared_data, response_variable)
+print(head(interaction_matrix))
+
+full_results <- analyze_interactions(prepared_data, interaction_matrix, response_variable)
+print(full_results)
+
+significant_interactions <- extract_significant(full_results)
+print(significant_interactions)
+
+fit_final_regression <- final_regression(prepared_data, response_variable)
+fit_final_regression
+
+plots <- plot_interaction_effects(prepared_data, response_variable, significant_interactions)
+plots
+
+
+```

@@ -1,4 +1,5 @@
 # test
+
 # simulation
 
 set.seed(1234)
@@ -11,11 +12,8 @@ v4 = rnorm(n)
 v5 = rbinom(n, 1, 0.6)
 interaction_effect1 <- v2 * v3
 interaction_effect2 <- v1 * v3
-
-y1 <- 2 * v1 + 2 * v2 + 2 * v3 + 4 * v4 + 3 * v5 + 100 * interaction_effect1 + 100 * interaction_effect2 + rnorm(n,mean=0,sd=1)
-
-
-data <- data.frame(y = y1, v1 = v1, v2 = v2, v3 = v3, v4 = v4, v5 = v5)
+y <- 2 * v1 + 2 * v2 + 2 * v3 + 4 * v4 + 3 * v5 + 100 * interaction_effect1 + 100 * interaction_effect2 + rnorm(n,mean=0,sd=1)
+data <- data.frame(y = y, v1 = v1, v2 = v2, v3 = v3, v4 = v4, v5 = v5)
 
 
 prepared_data <- prepare_data(data, "y")
@@ -35,4 +33,34 @@ library(ggplot2)
 plots <- plot_interaction_effects(prepared_data,"y", significant_interactions)
 plots
 
+
+# real data
+
+library(devtools)
+devtools::install_github("nwangcw/test", build = TRUE, build_opts = c("--no-resave-data", "--no-manual"),force = TRUE)
+
+
+library(InteractionPlot)
+library(MASS)
+
+data<- as.data.frame(birthwt)
+response_variable <-"lwt"
+
+prepared_data <- prepare_data(data, response_variable)
+print(head(prepared_data))
+
+interaction_matrix <- create_interaction_matrix(prepared_data, response_variable)
+print(head(interaction_matrix))
+
+full_results <- analyze_interactions(prepared_data, interaction_matrix, response_variable)
+print(full_results)
+
+significant_interactions <- extract_significant(full_results)
+print(significant_interactions)
+
+fit_final_regression <- final_regression(prepared_data, response_variable)
+fit_final_regression
+
+plots <- plot_interaction_effects(prepared_data, response_variable, significant_interactions)
+plots
 
