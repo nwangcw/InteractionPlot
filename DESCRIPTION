@@ -15,9 +15,9 @@ Imports:
     dplyr,
     ggplot2,
     glmnet,
-    stats,
-    MASS
+    stats
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown，
+    MASS
 VignetteBuilder: knitr

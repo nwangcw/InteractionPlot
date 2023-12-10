@@ -146,9 +146,9 @@ plots
 ```{r}
 
 library(InteractionPlot)
-library(MASS)
+#library(MASS)
 
-data<- as.data.frame(birthwt)
+data<- as.data.frame(MASS::birthwt)
 response_variable <-"lwt"
 
 prepared_data <- prepare_data(data, response_variable)
