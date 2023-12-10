@@ -24,9 +24,7 @@ In recent years, various plotting packages have become well-known in R for data 
 
 Interaction effects stand apart from other variables that you can measure directly. They need to be inferred indirectly through an interaction term in statistics model. Our package plans to streamline this process. We start by having the model $Y_{i,j}=X_1...+X_n+X_i*X_j$, for i,j=1..n. We'll need users to specify the response variable first. Based on this, we'll filter out all non-binary variables and create a matrix to hold all combinations of interaction variables, helping to cut down on computing costs. We'll then apply linear regression analysis to the data and highlight the significant interaction terms. Lastly, we'll take these insights and generate visualizations automatically with description of i number in main label, making it easier for users to understand the interaction effects in their data.
 
-## Installation
 
-To install InteractionPlot package, copy and paste the following code into your console:
 
 ## Usage
 
@@ -36,13 +34,16 @@ To install InteractionPlot package, copy and paste the following code into your 
 library(InteractionPlot)
 ```
 
-## Example
+## Example & Analysis
+### In vignette file, we will do full data analysis analysis for example 1 (simulation)
 
 ### Example 1 -- Simulation example
 
 ##### set v1, v2, v3, v5 as binary, v4 and y as continous.
 
 ##### set 2 interaction effect, v2 * v3 and v1 * v3.
+
+##### We generate y by setting different weight for variables and interaction terms and add them together.
 
 ```{r}
 set.seed(1234)
@@ -89,15 +90,19 @@ print(head(interaction_matrix))
 ##### We may see some terms are missing in full_results because of their p-value is NA 
 
 ```{r}
-full_results <- analyze_interactions(data, interaction_matrix, "y")
+full_results <- analyze_interactions(prepared_data, interaction_matrix, "y")
 print(full_results)
 significant_interactions <- extract_significant(full_results)
 print(significant_interactions)
 ```
 
+##### Analysis: 
 
+##### According to full results, summary for all possible models are listed. 
 
-##### we can see v1 * v3 and v2 * v3 are significant (p < 0.05), just as what we are setting in simulation.
+##### After extracting significant interaction, we can see v1 * v3 and v2 * v3 are significant (p < 0.05),
+
+#### The result is the same as what we are setting in simulation.
 
 #### Step 3 : Generate Final Regression
 
@@ -108,6 +113,15 @@ fit_final_regression <- final_regression(prepared_data, "y")
 fit_final_regression
 ```
 
+##### Analysis: 
+
+##### After fitting final mode, we can see v1 * v3 and v2 * v3 are significant (p < 0.05).
+
+##### Estimates for each terms are similar to what we set in simulation. 
+
+##### It is slightly different from original weights because we add noise when we are generating y.
+
+##### Adjusted-R^2 = 99.99%, P for final model < 0.05, good model.
 
 #### Step 4 : Plot Interaction Effects
 
@@ -122,4 +136,12 @@ library(ggplot2)
 plots <- plot_interaction_effects(prepared_data, "y", significant_interactions)
 plots
 ```
+
+##### Analysis:
+
+##### second plot (v1,v3 when v3 on x-axis) and fourth (v2,v3 when v3 on x-axis) are better plots than the rests
+
+##### the mean value of y for v1 and v2 depends on the category of v3. When v3 = 1, the the mean y of v2 = 1 (around 300) larger much more that of v2=0 (less than 100).
+
+#### In conclusion, in addition to linear regression summary, interaction plots also helps people to understand the interaction effects.
 
