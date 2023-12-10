@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 
 
-# InteractionPlot
+
 
 Nicole Wang
 
@@ -79,7 +79,7 @@ print(head(interaction_matrix))
 
 #### Step 2 : Fit Regression Model and Extract Significant Interactions
 
-##### The model will fit for each interaction term, for example:(in this case v4 was removed because it's continuous)
+##### The model will fit for each interaction term, for example, (in this case v4 was removed because it's continuous)
 
 ##### y = v1 + v2 + v3 + v5 + v1 * v2
 
@@ -143,5 +143,7 @@ plots
 
 ##### the mean value of y for v1 and v2 depends on the category of v3. When v3 = 1, the the mean y of v2 = 1 (around 300) larger much more that of v2=0 (less than 100).
 
-#### In conclusion, in addition to linear regression summary, interaction plots also helps people to understand the interaction effects.
+#### In conclusion,
+
+#### In addition to linear regression summary, interaction plots also helps people to understand the interaction effects.
 
