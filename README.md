@@ -63,6 +63,8 @@ plots
 
 ### Example 2 -- Real world data
 
+#### Step 1 : Data Cleaning and Preparation
+
 ```{r}
 
 library(InteractionPlot)
@@ -76,21 +78,52 @@ print(head(prepared_data))
 
 interaction_matrix <- create_interaction_matrix(prepared_data, response_variable)
 print(head(interaction_matrix))
+```
+#### Step 2 : Fit Regression Model and Extract Significant Interactions
 
+##### The model will fit for each interaction term, for example:(in this case v4 was removed because it's continuous)
+
+##### y = v1 + v2 + v3 + v5 + v1 * v2
+
+##### y = v1 + v2 + v3 + v5 + v1 * v3
+
+##### y = v1 + v2 + v3 + v5 + v2 * v3,....etc
+
+##### We may see some terms are missing in full_results because of their p-value is NA 
+
+```{r}
 full_results <- analyze_interactions(prepared_data, interaction_matrix, response_variable)
 print(full_results)
-
 significant_interactions <- extract_significant(full_results)
 print(significant_interactions)
+```
 
+![ ](img/sim_extract.png)
+
+##### we can see v1 * v3 and v2 * v3 are significant (p < 0.05), just as what we are setting in simulation.
+
+#### Step 3 : Generate Final Regression
+
+##### final model: y = v1 + v2 + v3 + v1 * v3 + v2 * v3
+
+```{r}
 fit_final_regression <- final_regression(prepared_data, response_variable)
 fit_final_regression
+```
+![ ](img/sim_coeff.png)
 
+#### Step 4 : Plot Interaction Effects
+
+```{r}
 plots <- plot_interaction_effects(prepared_data, response_variable, significant_interactions)
 plots
-
 ```
-### plots
+##### 2 plots of interaction v1*v3 (each variable has opportunity to be putted on the  x-axis)
 
 ![ ](img/v1_v3.png)
+![ ](img/v3_v1.png)
+
+##### 2 plots of interaction v2*v3 (each variable has opportunity to be putted on the  x-axis)
+![ ](img/v2_v3.png)
+![ ](img/v3_v2.png)
 
