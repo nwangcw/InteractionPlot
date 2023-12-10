@@ -16,7 +16,8 @@
 #' v5 = rbinom(n, 1, 0.6)
 #' interaction_effect1 <- v2 * v3
 #' interaction_effect2 <- v1 * v3
-#' y1 <- 2 * v1 + 2 * v2 + 2 * v3 + 4 * v4 + 3 * v5 + 100 * interaction_effect1 + 100 * interaction_effect2 + rnorm(n,mean=0,sd=1)
+#' y1 <- 2 * v1 + 2 * v2 + 2 * v3 + 4 * v4 + 3 * v5 +
+#' 100 * interaction_effect1 + 100 * interaction_effect2 + rnorm(n,mean=0,sd=1)
 #' data <- data.frame(y = y1, v1 = v1, v2 = v2, v3 = v3, v4 = v4, v5 = v5)
 #' prepared_data <- prepare_data(data, "y")
 #' interaction_matrix <- create_interaction_matrix(prepared_data, "y")
