@@ -18,6 +18,5 @@ Imports:
     stats
 Suggests: 
     knitr,
-    rmarkdown，
-    MASS
+    rmarkdown
 VignetteBuilder: knitr
