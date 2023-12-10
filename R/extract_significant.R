@@ -2,7 +2,7 @@
 #'
 #' @param full_results - gererated by analyze_interactions. A list where each element is a regression coefficient summary for each interaction term in the interaction matrix.
 #'
-#' @param significance_level - significant level (default as 0.05)
+#' @param significance_level - significant level, default as 0.05
 #'
 #' @return  - significant interaction terms' p-values and their names
 #' @export

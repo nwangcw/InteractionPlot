@@ -2,7 +2,6 @@
 #'
 #' @param data - original data
 #' @param response_var - response variable y
-#'
 #' @return cleaned data
 #' @export
 #'
