@@ -12,7 +12,7 @@ To install InteractionPlot package, copy and paste the following code into your 
 
 ```r
 library(devtools)
-devtools::install_github("nwangcw/test", build = TRUE, build_opts = c("--no-resave-data", "--no-manual"),force = TRUE)
+devtools::install_github("nwangcw/test", build_vignettes = TRUE, build_opts = c("--no-resave-data", "--no-manual"))
 ```
 
 ## Usage
