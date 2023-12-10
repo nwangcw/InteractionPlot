@@ -7,6 +7,9 @@ output: pdf_document
 
 ```{r}
 # test
+library(devtools)
+devtools::install_github("nwangcw/test", build = TRUE, build_opts = c("--no-resave-data", "--no-manual"),force = TRUE)
+
 set.seed(1234)
 
 n <- 100 
@@ -32,13 +35,13 @@ print(head(interaction_matrix))
 
 full_results <- analyze_interactions(data, interaction_matrix, "y")
 print(full_results)
-significant_interactions <- extract_significant_p_values(full_results)
+significant_interactions <- extract_significant(full_results)
 print(significant_interactions)
 
 fit_final_regression <- final_regression(prepared_data, "y")
 fit_final_regression
 
-plots <- plot_interaction_effects(prepared_data, significant_interactions)
+plots <- plot_interaction_effects(prepared_data, "y", significant_interactions)
 plots
 ```
 
