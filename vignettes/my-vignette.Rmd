@@ -14,9 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(InteractionPlot)
-```
+
 
 # InteractionPlot
 
@@ -35,13 +33,7 @@ library(devtools)
 devtools::install_github("nwangcw/test", build = TRUE, build_opts = c("--no-resave-data", "--no-manual"))
 ```
 
-## Usage
 
-To install InteractionPlot package, copy and paste the following code into your console:
-
-```{r}
-library(InteractionPlot)
-```
 
 ## Usage
 
