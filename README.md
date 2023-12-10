@@ -186,4 +186,4 @@ plots
 
 ### Analysis 
 
-Further analysis and details are available in Vignette (https://github.com/nwangcw/test/blob/main/vignettes/my-vignette.Rmd).
+Further analysis and details are available in package documentations and [Vignette] (https://github.com/nwangcw/test/blob/main/vignettes/my-vignette.Rmd).
