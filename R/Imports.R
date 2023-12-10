@@ -1,6 +1,5 @@
 #' @import glmnet
-#' @import stats
+#' @importFrom (stats, lm)
 #' @import ggplot2
 #' @import dplyr
-#' @importFrom (dplyr, filter)
 NULL
