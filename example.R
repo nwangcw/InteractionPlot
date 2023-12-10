@@ -32,7 +32,7 @@ print(significant_interactions)
 fit_final_regression <- final_regression(prepared_data, "y")
 fit_final_regression
 
-plots <- plot_interaction_effects(prepared_data, significant_interactions)
+plots <- plot_interaction_effects(prepared_data,"y", significant_interactions)
 plots
 
 
