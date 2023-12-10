@@ -23,8 +23,7 @@
 #' significant_interactions <- extract_significant_p_values(full_results)
 #' fit_final_regression <- final_regression(prepared_data, "y")
 #' plots <- plot_interaction_effects(prepared_data, significant_interactions)
-#' plots
-#' do plots in R-markdown if you want to see all plots in 1 times.
+#' #do plots in R-markdown if you want to see all plots in 1 times.
 
 
 plot_interaction_effects <- function(data, significant_interactions) {

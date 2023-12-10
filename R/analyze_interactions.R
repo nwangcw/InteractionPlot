@@ -24,8 +24,8 @@
 #' interaction_matrix <- create_interaction_matrix(prepared_data, "y")
 #'
 #'
-#' The way we generate model would be y = v1 + v2 + v3 + v5 + v1 * v2 ,
-#'  y = v1 + v2 + v3 + v5 + v1 * v3,...,etc
+#' #The way we generate model would be y = v1 + v2 + v3 + v5 + v1 * v2 ,
+#'  #y = v1 + v2 + v3 + v5 + v1 * v3,...,etc
 #' full_results <- analyze_interactions(prepared_data, interaction_matrix, "y")
 #' print(full_results)
 #'
