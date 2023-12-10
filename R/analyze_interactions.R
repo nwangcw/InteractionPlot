@@ -7,7 +7,7 @@
 #' @return - full_results. A list where each element is a regression coefficient summary for each interaction term in the interaction matrix.
 #'
 #'
-#' @export - this function is available/exported to the user
+#' @export
 #'
 #' @examples
 #' set.seed(1234)

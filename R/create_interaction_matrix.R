@@ -4,7 +4,7 @@
 #' @param response_var - response variable y
 #'
 #' @return - Interaction Matrix
-#' @export - this function is available/exported to the user
+#' @export
 #'
 #' @examples
 #'

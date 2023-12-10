@@ -5,7 +5,7 @@
 #' @param significance_level - significant level (default as 0.05)
 #'
 #' @return  - significant interaction terms' p-values and their names
-#' @export  - this function is available/exported to the user
+#' @export
 #'
 #' @examples
 #' set.seed(1234)

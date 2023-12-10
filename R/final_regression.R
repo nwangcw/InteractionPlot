@@ -4,7 +4,7 @@
 #' @param response_var - response variable y
 #'
 #' @return Final Regression Model Summary
-#' @export  - this function is available/exported to the user
+#' @export
 #'
 #' @examples
 #' set.seed(1234)
