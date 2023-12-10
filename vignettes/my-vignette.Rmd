@@ -119,7 +119,7 @@ fit_final_regression
 #### Step 4 : Plot Interaction Effects
 
 ```{r}
-plots <- plot_interaction_effects(prepared_data, significant_interactions)
+plots <- plot_interaction_effects(prepared_data, "y", significant_interactions)
 plots
 ```
 ##### 2 plots of interaction v1*v3 (each variable has opportunity to be putted on the  x-axis)
