@@ -4,7 +4,7 @@
 #' @param response_var - response variable y
 #'
 #' @return cleaned data
-#' @export this function is available/exported to the user
+#' @export - this function is available/exported to the user
 #'
 #' @examples
 #'
