@@ -102,7 +102,7 @@ significant_interactions <- extract_significant(full_results)
 print(significant_interactions)
 ```
 
-![ ](img/sim_extract.png)
+
 
 ##### we can see v1 * v3 and v2 * v3 are significant (p < 0.05), just as what we are setting in simulation.
 
@@ -114,22 +114,20 @@ print(significant_interactions)
 fit_final_regression <- final_regression(prepared_data, "y")
 fit_final_regression
 ```
-![ ](img/sim_coeff.png)
+
 
 #### Step 4 : Plot Interaction Effects
+
+##### 2 plots of interaction v1*v3 (each variable has opportunity to be putted on the  x-axis)
+
+##### 2 plots of interaction v2*v3 (each variable has opportunity to be putted on the  x-axis)
+
 
 ```{r}
 plots <- plot_interaction_effects(prepared_data, "y", significant_interactions)
 plots
 ```
-##### 2 plots of interaction v1*v3 (each variable has opportunity to be putted on the  x-axis)
 
-![ ](img/v1_v3.png)
-![ ](img/v3_v1.png)
-
-##### 2 plots of interaction v2*v3 (each variable has opportunity to be putted on the  x-axis)
-![ ](img/v2_v3.png)
-![ ](img/v3_v2.png)
 
 
 
@@ -172,7 +170,7 @@ significant_interactions <- extract_significant(full_results)
 print(significant_interactions)
 ```
 
-![ ](img/mass_extract.png)
+
 
 ##### we can see somke * ht and somke * ui are significant (p < 0.05), just as what we are setting in simulation.
 
@@ -184,20 +182,18 @@ print(significant_interactions)
 fit_final_regression <- final_regression(prepared_data, response_variable)
 fit_final_regression
 ```
-![ ](img/mass_coeff.png)
+
 
 #### Step 4 : Plot Interaction Effects
+
+##### 2 plots of interaction somke * ht (each variable has opportunity to be putted on the  x-axis)
+
+##### 2 plots of interaction somke * ui (each variable has opportunity to be putted on the  x-axis)
+
 
 ```{r}
 plots <- plot_interaction_effects(prepared_data, response_variable, significant_interactions)
 plots
 ```
-##### 2 plots of interaction somke * ht (each variable has opportunity to be putted on the  x-axis)
 
-![ ](img/mass_somke_ht.png)
-![ ](img/mass_ht_smoke.png)
-
-##### 2 plots of interaction somke * ui (each variable has opportunity to be putted on the  x-axis)
-![ ](img/mass_somke_ui.png)
-![ ](img/mass_ui_smoke.png)
 
