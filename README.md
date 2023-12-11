@@ -7,7 +7,20 @@ Interaction effects stand apart from other variables that you can measure direct
 
 ## Installation
 
-To install InteractionPlot package, copy and paste the following code into your console:
+### Require a "vctrs" package version >= 0.64
+
+#### Package version check
+    
+```r
+packageVersion("vctrs")
+```
+#### update "vctrs", make sure you have the latest version
+    
+```r
+install.packages("vctrs")
+```
+
+### To install InteractionPlot package, copy and paste the following code into your console:
 
 ```r
 library(devtools)
