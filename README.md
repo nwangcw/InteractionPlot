@@ -7,7 +7,7 @@ Interaction effects stand apart from other variables that you can measure direct
 
 ## Installation
 
-### Require a "vctrs" package version >= 0.64
+### Require a "vctrs" package version >= 0.6.4
 
 #### Package version check
     
