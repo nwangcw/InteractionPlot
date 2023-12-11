@@ -15,8 +15,7 @@ Imports:
     dplyr,
     ggplot2,
     glmnet,
-    stats,
-    vctrs (>= 0.6.4)
+    stats
 Suggests: 
     knitr,
     rmarkdown
